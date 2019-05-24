@@ -27,13 +27,16 @@ def notify(data, buffer, date, tags, displayed, highlight, prefix, message):
     if (now_time - message_time).seconds > 5:
         return weechat.WEECHAT_RC_OK
 
-    # Set title
     title = '%s ' % prefix
+    # From highlight
     if int(highlight):
         channel = weechat.buffer_get_string(buffer, 'localvar_channel')
         title += channel
+    # From private
     elif 'notify_private' in tags:
         title += '[private]'
+    else:
+        return weechat.WEECHAT_RC_OK
 
     # Send notification
     notification = 'display notification "%s" with title "%s"' % (message,
