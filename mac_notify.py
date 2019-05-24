@@ -1,4 +1,4 @@
-# https://github.com/chunkhang/weechat-notification
+# https://github.com/chunkhang/weechat-mac-notify
 
 import datetime
 import subprocess
